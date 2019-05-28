@@ -95,3 +95,17 @@ The name is the most important information of the page. That's why it uses the <
 The font size uses the rem unit: it's the root value, equal to the font size set on the html element, which we previously set to 16px . So 2.25rem is essentially 36px . Using rem is useful because it references a common value, and we can update the html value to set all instances of rem values.
 
 The line-height is set to 1.125 It's hard to see its purpose if the text is too short (resize your browser to reach two lines), but keeping the page value of 1.5 makes the two lines too spaced out.
+
+**BEST PRACTICE**
+_Set line-height first, margin/padding second_
+Some developers use the line-height as a way to give space to an element. But as its name suggests, it's meant to define the height of a single line, not the space between each line.
+The line-height value should be set for readability purposes only.
+If you need to give more breathing space to an element, just use a bit of margin (or sometimes padding), which is what we're doing here with margin-bottom .
+
+The hr line
+
+The horizontal rule ( `hr` ) defines a semantic break between blocks of text. While keeping this semantic value intact, we want to make this line more subtle.
+
+For more control, we're removing the border and using the background-color with a height of 1px to define a thin short line.
+
+The `transform-origin` will be used when we animate the width later on.

@@ -34,6 +34,12 @@ a {
     width: 100%;
     }
 
+.job,
+.button {
+    font-family: "Montserrat", "Quicksand", sans-serif;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    }
 
 /* 3. Specific */
 
@@ -82,6 +88,22 @@ a {
     line-height: 1.125;
     margin-bottom: 0.5rem;
         }
+
+.job {
+    color: #ffe479;
+    font-size: 0.75rem;
+    }
+
+.hr {
+    background-color: #ff470f;
+    border: none;
+    content: "";
+    height: 1px;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    transform-origin: center left;
+    width: 4rem;
+    }
 
 /* 4. Responsiveness */
 
