@@ -23,7 +23,7 @@ The `min-height: 100vh` ensures the page to be at least as tall as 100% of the v
 The `overflow-x: hidden` declaration prevents the page from scrolling horizontally while preserving the
 usual vertical scroll.
 
-## Links
+### Links
 
 Using `currentColor` is prefered because it will pick up the color set by html before: color: #fff .
 Updating the color of both only requires a single line change.
@@ -109,3 +109,42 @@ The horizontal rule ( `hr` ) defines a semantic break between blocks of text. Wh
 For more control, we're removing the border and using the background-color with a height of 1px to define a thin short line.
 
 The `transform-origin` will be used when we animate the width later on.
+
+By using `display: inline-block` we combine two behaviors:
+
+* inline makes sure the width is equal to its content (the button) 
+* block makes sure surrounding elements will appear above and below 
+* it also allows us to use margin-top.
+
+The `em` unit is equal to the current font size. In this case, it's similar to the unitless line height value.
+The font size uses the `rem` unit: it's the root value, equal to the font size set on the html element.
+
+The button uses the same inline-block technique as its parent.
+
+The height of the button is proportional to the font size, and equal to 3.5 times the font size value:
+* the unitless line-height is equal to 1 or 0.875rem
+* the vertical paddings (top and bottom) are set to 1.25em each, or 1.25 times the font size
+
+The em unit is equal to the current font size. In this case, it's similar to the unitless line height value.
+
+If you play around with the font-size value, by setting 2rem for example, you'll notice that the button will resize proportionally. This is very useful because we only need to update a single value to increase/decrease the size of the button, while maintaining a perfect ratio.
+
+We also apply some other styles:
+* because of the colored background and the darker text color, we remove the text-shadow
+* we use `user-select: none` so the text content can't be selected, which can happen when clicking repeatedly on the button
+* to make sure the text never is displayed on two lines, we use `white-space: nowrap`
+
+### Button states
+
+The button is the main interaction element of the page. Visitors can hover the button and click on it.
+
+The `transition-property` and `will-change` values are for the button states.
+
+The box shadow is transparent so it can work on any background color. For the transformation, we increase the button's size by 2% with `scale(1.02)` and move it upwards by a few pixels with `translateY(-4px)` .
+
+When clicking the button, we want to make it look as if it was pressed downward.
+
+We're just playing with the same properties but with different values. The shadow is stronger and smaller because the button appears closer to the "ground".
+
+Play with the transition-duration value set in the 2. Shared section to see it slower or faster.
+
