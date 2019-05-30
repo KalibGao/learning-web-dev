@@ -1,3 +1,5 @@
+# HTML
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 This is the responsive meta tag. It tells the browser to set the content width to the viewport one, ensuring
@@ -5,6 +7,8 @@ for the content to adapt automatically. It also tells the browser to set the zoo
 allowing the user to zoom in (especially on mobile phones).
 
 Before writing any CSS, you have to start with the most important of a webpage: the **content**.
+
+# Base CSS
 
 **BEST PRACTICE** 
 *Order your CSS rules alphabetically*
@@ -29,6 +33,8 @@ Using `currentColor` is prefered because it will pick up the color set by html b
 Updating the color of both only requires a single line change.
 
 Sometimes, the hand cursor doesn't show up when hovering a link. That's why I always add `cursor: pointer` to force the hand to show up.
+
+# Layout
 
 Background image with no <img> tag:
 This image is not displayed with an <img> tag because its purpose is decorative and belongs in the CSS.
@@ -76,6 +82,7 @@ With mobile-first approaches, it's easy to make a layout work well on narrow scr
 The margin-bottom set for the .side element should only appear on mobile.
 Instead of applying a margin by default on all screens, and removing it on desktop, we only apply it on mobile.
 
+# Styling the elements
 
 ### The picture
 
@@ -148,3 +155,29 @@ We're just playing with the same properties but with different values. The shado
 
 Play with the transition-duration value set in the 2. Shared section to see it slower or faster.
 
+# Font-Awesome
+
+We are including the whole Font Awesome library directly from the CDN. The benefit is that all icons are available. The disadvantage is that the files loaded are much bigger in size. You can use an icon font generator like _IcoMoon_ or _Fontello_ to only include the icons you actually need. This will reduce the size of the font files. One other option is to use SVG images directly, but that's trickier!
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+
+**Interessante**
+If you reload the page repeatedly, you might notice that the layout "jumps" for a split second. That's because at first, the icons are not loaded, and the page only displays the text and the images. Then, when the icons finally load, the pop up, and cause the page to be redrawn, hence the jump.
+
+To avoid this jump, we're gonna set a square area of 2rem by 2rem for each <li> list item.
+
+# CSS Animations
+
+Animating in CSS is basically changing a set of values over time. For example, fading in an element is done by setting the `opacity` to zero `0` , and gradually incrementing it ( 0.1 , 0.2 , 0.3 …) until you finally reach the value of `1`.
+
+It would take a while to figure all the intermediate values. Luckily in CSS, you only need to set 2 values:
+
+* the start values, with the keyword `from`
+* the end values, with the keyword `to`
+
+Everything in between will be determined by:
+
+* the `animation-duration` : how long it takes to go from the start to the end
+* the `animation-timing-function` : how the values in between are calculated (based on a curve)
+
+CSS Animations are triggered when the page loads, or when a class name changes.
