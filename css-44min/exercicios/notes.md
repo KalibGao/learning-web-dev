@@ -181,3 +181,78 @@ Everything in between will be determined by:
 * the `animation-timing-function` : how the values in between are calculated (based on a curve)
 
 CSS Animations are triggered when the page loads, or when a class name changes.
+
+## Keyframes
+
+A `@keyframes` statement contains a list of keyframes, which are all the intermediate steps of an animation.
+
+We're gonna use the simple version where we only need to set two keyframes:
+
+* `from` is the keyframe at the start of the animation
+* `to` is the keyframe at the end of the animation
+
+You can have more than 2 keyframes, if you use percentages instead.
+
+Here's the first keyframe we're gonna use. Add it to `animations.css` :
+
+```css
+@keyframes bounceIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+```
+
+This `bounceIn` animation completes two changes simultaneously:
+
+* fading in, from completely transparent to completely opaque
+* scaling up, from half the size to the original size
+
+We're gonna write 7 keyframe statements in total:
+
+* `zoomOut` for the wallpaper
+* `picImage` for the picture image
+* `picShadow` for the picture shadow
+* `slideDown` for the name
+* `slideUp` for all other text elements
+* `fillUp` for the hr line
+* `bounceIn` for the contact button
+
+The `animation-fill-mode` set to both tells the browser to use the `from` values before the animation, and to keep the `to` values after the animation has ended. Otherwise, the element would revert to their non-animated styles.
+
+For an animation to be triggered automatically, you only require the duration and the name. Let's add the
+name:
+
+```css
+
+.contact {
+    animation-name: bounceIn;
+}
+
+```
+
+We can now trigger all animations by using animation-name for all of them.
+
+Então: 
+
+1. define os keyframes, dando nomes para os efeitos e definindo o que os efeitos fazem.
+2. define duração, função de tempo (bezier, linear etc.), fill-mode (como o elemento tem q se comportar antes e depois da animação) para os elementos da página (usando seletores normais)
+3. define que efeitos serão aplicados a que elementos, usando seletores e os nomes dos keyframes que foram definidos em (1).
+
+## Delaying the animations:
+
+Because all animations are happening simultaneously, it's difficult to see the effect of each of them. What we simply need to do, is to trigger them in sequence.
+
+By using a trigger delay, we can achieve a lot!
+
+```css
+.name {
+    animation-delay: 100ms;
+}
+```
